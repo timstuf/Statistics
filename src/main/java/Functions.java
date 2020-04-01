@@ -66,4 +66,19 @@ class Functions {
         System.out.printf("Second bound: %.2f - (%.2f * %.2f / %.2f)  =  %.2f\n", expectation, t, std, nSqrt, second);
         System.out.println("____________________________________");
     }
+
+    void intervalDispersion(double alpha) {
+        System.out.printf("Посмотрите на таблицу распределения ХиКвадрат. Число степеней свободы равно %d. \n" +
+                "Уровень значимости равен %.2f.\nВведите число на пересечении, РАЗДЕЛИТЕЛЬ - ЗАПЯТАЯ \n", n-1, alpha/2);
+        double x1 = scanner.nextDouble();
+        System.out.printf("Посмотрите на таблицу распределения ХиКвадрат. Число степеней свободы равно %d. \n" +
+                "Уровень значимости равен %.2f.\nВведите число на пересечении, РАЗДЕЛИТЕЛЬ - ЗАПЯТАЯ \n", n-1, 1-alpha/2);
+        double x2 = scanner.nextDouble();
+        double numerator = (n - 1) * dispersion;
+        double first = numerator / x1;
+        double second = numerator / x2;
+        System.out.printf("First bound: (%d - 1) * %.2f  / %.2f =  %.2f\n", n, dispersion, x1, first);
+        System.out.printf("First bound: (%d - 1) * %.2f / %.2f =  %.2f\n", n, dispersion, x2, second);
+
+    }
 }
