@@ -46,8 +46,8 @@ class Functions {
         double u2 = scanner.nextDouble();
         double std = Math.sqrt(dispersion);
         double nSqrt = Math.sqrt(n);
-        double first = expectation - std/nSqrt*u2;
-        double second = expectation + std/nSqrt*u2;
+        double first = expectation - std / nSqrt * u2;
+        double second = expectation + std / nSqrt * u2;
         System.out.printf("First interval: %.3f - (%.3f * %.3f / %.3f)  =  %.3f\n", expectation, u2, std, nSqrt, first);
         System.out.printf("First interval: %.3f - (%.3f * %.3f / %.3f)  =  %.3f\n", expectation, u2, std, nSqrt, second);
         System.out.println("____________________________________");
