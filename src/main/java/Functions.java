@@ -8,6 +8,7 @@ class Functions {
     private double expectation;
     private double dispersion;
 
+
     Functions(int[] values, int[] quantities) {
         this.values = values;
         this.quantities = quantities;
