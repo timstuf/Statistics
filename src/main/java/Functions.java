@@ -2,14 +2,14 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 class Functions {
-    private int[] values;
+    private double[] values;
     private int[] quantities;
     private int n;
     private double expectation;
     private double dispersion;
     private Scanner scanner = new Scanner(System.in);
 
-    Functions(int[] values, int[] quantities) {
+    Functions(double[] values, int[] quantities) {
         this.values = values;
         this.quantities = quantities;
         n = IntStream.of(quantities).sum();
@@ -19,7 +19,7 @@ class Functions {
         double expectation = 0;
         for (int i = 0; i < values.length; i++) {
             expectation += values[i] * quantities[i];
-            System.out.printf("%d * %d = %d\n", values[i], quantities[i], values[i] * quantities[i]);
+            System.out.printf("%.2f * %d = %.2f\n", values[i], quantities[i], values[i] * quantities[i]);
         }
         System.out.printf("Sum = %.2f\n", expectation);
         System.out.printf("Математическое ожидание = %.2f / %d = %.2f \n", expectation, n, expectation / n);
@@ -31,7 +31,7 @@ class Functions {
         double dispersion = 0;
         for (int i = 0; i < values.length; i++) {
             dispersion += Math.pow((values[i] - expectation), 2) * quantities[i];
-            System.out.printf("%d * (%d - %.2f)^2 = %f\n", quantities[i], values[i], expectation, Math.pow((values[i] - expectation), 2) * quantities[i]);
+            System.out.printf("%d * (%.2f - %.2f)^2 = %f\n", quantities[i], values[i], expectation, Math.pow((values[i] - expectation), 2) * quantities[i]);
         }
         System.out.printf("Выборочная дисперсия = %.2f / %d = %.2f\n", dispersion, n, dispersion / n);
         System.out.printf("Исправленная выборочная дисперсия = %d/%d * %.2f = %.2f \n", n, n - 1, dispersion / n, dispersion / (n - 1));
@@ -39,7 +39,7 @@ class Functions {
         System.out.println("____________________________________");
     }
 
-    void intervalExpectation(double alpha) {
+    void intervalExpectation(double alpha, double dispersion) {
         double laplasOfU = (1 - alpha) / 2;
         System.out.printf("Ф(u/2) = (1 - %.2f) / 2 = %.2f\n", alpha, laplasOfU);
         System.out.printf("Посмотрите на таблицу Лапласа. Найдите ячейку, значение которой равно %.2f. \n" +
