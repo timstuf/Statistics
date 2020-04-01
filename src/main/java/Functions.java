@@ -4,6 +4,7 @@ public class Functions {
     private int[] values;
     private int[] quantities;
     private int n;
+
     public Functions(int[] values, int[] quantities) {
         this.values = values;
         this.quantities = quantities;
@@ -28,8 +29,8 @@ public class Functions {
             dispersion += Math.pow((values[i] - expectation), 2) * quantities[i];
             System.out.printf("%d * (%d - %f)^2 = %f\n", quantities[i], values[i], expectation, Math.pow((values[i] - expectation), 2) * quantities[i]);
         }
-        System.out.printf("Выборочная дисперсия = %f / %d = %f\n", dispersion, n, dispersion/n);
-        System.out.printf("Исправленная выборочная дисперсия = %d/%d * %f = %f \n", n, n-1, dispersion/n, dispersion/(n-1));
-        return dispersion/(n-1);
+        System.out.printf("Выборочная дисперсия = %f / %d = %f\n", dispersion, n, dispersion / n);
+        System.out.printf("Исправленная выборочная дисперсия = %d/%d * %f = %f \n", n, n - 1, dispersion / n, dispersion / (n - 1));
+        return dispersion / (n - 1);
     }
 }
