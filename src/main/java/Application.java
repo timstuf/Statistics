@@ -6,6 +6,7 @@ public class Application {
         functions.expectation();
         functions.dispersion();
         functions.intervalExpectation(0.1);
+        functions.intervalExpectationByDispersion(0.1);
         functions.intervalDispersion(0.1);
     }
 }
